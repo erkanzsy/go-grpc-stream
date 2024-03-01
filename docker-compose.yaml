@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  protoc:
+    restart: unless-stopped
+    build:
+      dockerfile: docker/protoc/Dockerfile
+      context: .
+    volumes:
+      - .:/application:cached
+
+networks:
+  default:
+    name: chat-grpc
+    external: true
